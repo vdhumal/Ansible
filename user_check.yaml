@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: Check for user existence
-      ansible.builtin.command: "getent passwd vidhumal"
+      ansible.builtin.command: "id vidhumal"
       register: user_check
       ignore_errors: yes
 
