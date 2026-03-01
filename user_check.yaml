@@ -5,10 +5,9 @@
   become: true
   tasks:
     - name: Check for user existence
-      ansible.builtin.command: "id vidhumal"
+      ansible.builtin.shell: "id vidhumal"
       register: user_check
       ignore_errors: yes
-
     - name: Report user existence
       ansible.builtin.debug:
         var: user_check.stdout
