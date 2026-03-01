@@ -2,7 +2,7 @@
 - name: Check if user exists
   hosts: all
   gather_facts: no
-  become: true
+  become: false
   tasks:
     - name: Check for user existence
       ansible.builtin.shell: "id vidhumal"
