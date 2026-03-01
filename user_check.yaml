@@ -11,6 +11,5 @@
 
     - name: Report user existence
       ansible.builtin.debug:
-        msg: "{{ 'User vidhumal exists on ' ~ inventory_hostname if user_check.rc == 0 else 'User vidhumal does NOT exist on ' ~ inventory_hostname }}"
-
+        var: user_check.stdout
 
