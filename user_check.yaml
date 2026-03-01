@@ -1,0 +1,20 @@
+---
+- name: Check if user exists
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Check for user existence
+      ansible.builtin.command: "getent passwd vidhumal"
+      register: user_check
+      ignore_errors: yes
+
+    - name: Report user existence
+      ansible.builtin.debug:
+        msg: >
+          {% if user_check.rc == 0 %}
+            User 'vidhumal' exists on {{ inventory_hostname }}
+          {% else %}
+            User 'vidhumal' does NOT exist on {{ inventory_hostname }}
+          {% endif %}
+
+
